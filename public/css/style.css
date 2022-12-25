@@ -1,0 +1,14 @@
+body{
+    padding: 40px 50px 60px;
+    background-color: #FAF9F9;
+}
+.serviceReports{
+    text-align: center;
+}
+.number{
+    padding-right: 500px;
+}
+.service{
+    font-weight: bold;
+    text-align: center;
+}
