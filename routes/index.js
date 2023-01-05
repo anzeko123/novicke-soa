@@ -3,11 +3,14 @@ const router = express();
 const fetch = require('node-fetch');
 
 router.get('/', (req, res) =>{
-    /*
+    
     async function serviceReports(){
-        const getNews = req.params.newsId;
-        const newNews = await fetch("http://studentdocker.informatika.uni-mb.si:3050/new");
+        //const getNews = req.params.newsId;
+        const reports = await fetch("https://new-news-reports.herokuapp.com/numCalls");
+        const responseReports = await reports.json();
+        console.log(responseReports.numCalls)
         //const newNews = await fetch("http://novicke-nove-novicke-api:4000/new");
+        /*
         const responseNewNews = await newNews.json();
         const responseNewsArray = []
         for(const newNews of responseNewNews){
@@ -20,12 +23,11 @@ router.get('/', (req, res) =>{
         }
         //console.log(responseNewsArray);
         res.render('../views/newNews', {responseNews: responseNewsArray})
-        
+        */
+        res.render('../views/index', {newNews: responseReports})
       }
     serviceReports();
-    */
-   console.log('test')
-    res.render('../views/index')
+
 });
 
 module.exports = router;
