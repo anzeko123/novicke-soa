@@ -5,26 +5,16 @@ const fetch = require('node-fetch');
 router.get('/', (req, res) =>{
     
     async function serviceReports(){
-        //const getNews = req.params.newsId;
-        const reports = await fetch("https://new-news-reports.herokuapp.com/numCalls");
-        const responseReports = await reports.json();
-        console.log(responseReports.numCalls)
-        //const newNews = await fetch("http://novicke-nove-novicke-api:4000/new");
-        /*
-        const responseNewNews = await newNews.json();
-        const responseNewsArray = []
-        for(const newNews of responseNewNews){
-            //console.log(newNews.newsId);
-            const news = await fetch(`http://studentdocker.informatika.uni-mb.si:12001/api/v1/news/${newNews.newsId}`);
-            //const news = await fetch("http://novicke-novice-service-api:12001/api/v1/news/");
-            const responseNews = await news.json();
-            console.log(responseNews.newsTitle)
-            responseNewsArray.push(responseNews);
-        }
-        //console.log(responseNewsArray);
-        res.render('../views/newNews', {responseNews: responseNewsArray})
-        */
-        res.render('../views/index', {newNews: responseReports})
+
+        const reportsNewNews = await fetch("https://new-news-reports.herokuapp.com/numCalls");
+        const responseReportsNewNews = await reportsNewNews.json();
+        console.log(responseReportsNewNews.numCalls);
+        const reportsLogin = await fetch("http://164.8.9.88:12005/api/v1/statistics/endpoint_calls");
+        const responseReportsLogin = await reportsLogin.json();
+        const numCallsLogin = responseReportsLogin[2].stDostopov;
+        console.log(responseReportsLogin[2].stDostopov);
+
+        res.render('../views/index', {newNews: responseReportsNewNews, login: numCallsLogin})
       }
     serviceReports();
 
