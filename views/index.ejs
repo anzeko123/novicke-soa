@@ -21,7 +21,7 @@
                     <td class="number">Št. klicev: </td>
                     </tr>
                     <tr>
-                    <td class="service">novicke-uporabniki-service-api</td>
+                    <td class="service">Storitev: novicke-uporabniki-service-api   Endpoint: api/v1/user/login</td>
                     <% if (typeof login !== 'undefined') {%>
                     <td class="number">Št. klicev: <%= login%></td>
                         <% } else {%>%>
@@ -29,11 +29,11 @@
                         <% }%>
                     </tr>
                     <tr>
-                    <td class="service">novicke-komentarji-service-api</td>
+                    <td class="service">novicke-komentrji-service-api</td>
                     <td class="number">Št. klicev: </td>
                     </tr>
                     <tr>
-                    <td class="service">novicke-nove-novicke-api</td>
+                    <td class="service">Storitev: novicke-nove-novicke-api   Endpoint: /new</td>
                     <% if (typeof newNews !== 'undefined') {%>
                     <td class="number">Št. klicev: <%= newNews.numCalls%></td>
                         <% } else {%>%>
